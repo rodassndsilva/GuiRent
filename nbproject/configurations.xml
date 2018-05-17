@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="100">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <itemPath>aluguer.h</itemPath>
+      <itemPath>ban_cli.h</itemPath>
+      <itemPath>cliente.h</itemPath>
+      <itemPath>guitarras.h</itemPath>
+      <itemPath>menus.h</itemPath>
+      <itemPath>structs.h</itemPath>
+      <itemPath>util.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <itemPath>aluguer.c</itemPath>
+      <itemPath>ban_cli.c</itemPath>
+      <itemPath>cliente.c</itemPath>
+      <itemPath>guitarras.c</itemPath>
+      <itemPath>main.c</itemPath>
+      <itemPath>menus.c</itemPath>
+      <itemPath>util.c</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <standard>3</standard>
+        </cTool>
+      </compileType>
+      <item path="aluguer.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="aluguer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ban_cli.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="ban_cli.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="cliente.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="cliente.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="guitarras.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="guitarras.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="menus.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="menus.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="structs.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="util.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="util.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+          <standard>3</standard>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+      </compileType>
+      <item path="aluguer.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="aluguer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ban_cli.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="ban_cli.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="cliente.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="cliente.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="guitarras.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="guitarras.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="menus.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="menus.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="structs.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="util.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="util.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
