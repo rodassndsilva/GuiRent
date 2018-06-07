@@ -21,7 +21,7 @@ void add_rent_to_file(Aluguer * aluguer, char *nome_fich);
 Aluguer * add_rent_to_node(Aluguer *aluguer, Aluguer alu_aux);
 int check_num_rents_of_cli(Cliente *c, int nif);
 Cliente * conclude_rent_in_node(Cliente *cliente, Guitar *gui, int nif, int pos, int estado_gui, Data data_f);
-void show_active_rents(Cliente *cliente, Guitar *gui, int tam);
+int show_active_rents(Cliente *cliente, Guitar *gui, int tam);
 void show_rents(Cliente *cliente, Guitar *gui, int tam);
 
 #endif /* ALUGUER_H */

@@ -7,7 +7,6 @@
 Guitar * create_vector(Guitar *gui, int *tam) {
     gui = (Guitar*) malloc(*tam * sizeof (Guitar));
     if (gui == NULL) {
-        printf("Debug: \n");
         *tam = 0;
         return NULL;
     }

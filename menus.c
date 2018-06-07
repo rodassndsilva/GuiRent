@@ -8,10 +8,12 @@
 
 int menu() {
     int op;
-    printf("1 - Clientes");
-    printf("\n2 - Guitarras");
-    printf("\n3 - Aluguer");
-    printf("\n4 - Terminar");
+    printf(" -----------------------");
+    printf("\n|    1 - Clientes       |");
+    printf("\n|    2 - Guitarras      |");
+    printf("\n|    3 - Aluguer        |");
+    printf("\n|    4 - Terminar       |");
+    printf("\n -----------------------");
     do {
         printf("\nOpcao: ");
         scanf("%d", &op);
@@ -21,12 +23,14 @@ int menu() {
 
 int submenu1() {
     int op;
-    printf("1 - Adicionar Cliente"); //feito
-    printf("\n2 - Remover Cliente(Ativo)"); //feito
-    printf("\n3 - Dados Cliente"); // feito
-    printf("\n4 - Lista de Clientes Ativos"); //feito
-    printf("\n5 - Lista de Clientes Banidos"); //feito
-    printf("\n6 - Voltar Atras");
+    printf(" ---------------------------------------");
+    printf("\n|     1 - Adicionar Cliente             |"); //feito
+    printf("\n|     2 - Remover Cliente(Ativo)        |"); //feito
+    printf("\n|     3 - Dados Cliente                 |"); // feito
+    printf("\n|     4 - Lista de Clientes Ativos      |"); //feito
+    printf("\n|     5 - Lista de Clientes Banidos     |"); //feito
+    printf("\n|     6 - Voltar Atras                  |");
+    printf("\n ---------------------------------------");
     do {
         printf("\nOpcao: ");
         scanf("%d", &op);
@@ -36,11 +40,13 @@ int submenu1() {
 
 int submenu2() {
     int op;
-    printf("1 - Adicionar Guitarra"); //feito
-    printf("\n2 - Mostra Historico de Guitarras"); //feito
-    printf("\n3 - Lista de Todas as Guitarras"); //Feito
-    printf("\n4 - Lista das Guitarras Alugadas"); //feito 
-    printf("\n5 - Voltar Atras"); //feito
+    printf(" ---------------------------------------------------");
+    printf("\n|    1 - Adicionar Guitarra                         |"); //feito
+    printf("\n|    2 - Mostra Historico de Guitarras              |"); //feito
+    printf("\n|    3 - Lista de Todas as Guitarras                |"); //Feito
+    printf("\n|    4 - Lista das Guitarras Alugadas               |"); //feito 
+    printf("\n|    5 - Voltar Atras                               |"); //feito
+    printf("\n ---------------------------------------------------");
     do {
         printf("\nOpcao: ");
         scanf("%d", &op);
@@ -50,11 +56,12 @@ int submenu2() {
 
 int submenu3() {
     int op;
-    //system("cls");
-    printf("1 - Criar Aluguer"); //Feito 
-    printf("\n2 - Concluir Aluguer"); //Feito
-    printf("\n3 - Lista de Alugueres"); //feito
-    printf("\n4 - Voltar Atras");
+    printf(" -------------------------------");
+    printf("\n|    1 - Criar Aluguer          |"); //Feito 
+    printf("\n|    2 - Concluir Aluguer       |"); //Feito, falta a multa
+    printf("\n|    3 - Lista de Alugueres     |"); //feito
+    printf("\n|    4 - Voltar Atras           |");
+    printf("\n -------------------------------");
     do {
         printf("\nOpcao: ");
         scanf("%d", &op);

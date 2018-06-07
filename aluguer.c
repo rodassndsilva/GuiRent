@@ -185,13 +185,13 @@ void show_rents(Cliente *cliente, Guitar *gui, int tam) {
     }
 }
 
-void show_active_rents(Cliente *cliente, Guitar *gui, int tam) { //mostra alugueres em curso
+int show_active_rents(Cliente *cliente, Guitar *gui, int tam) { //mostra alugueres em curso
     Cliente *aux;
     aux = cliente;
     int pos;
     if (aux == NULL) {
         printf("Nao existem Alugueres por mostrar...\n\n");
-        return;
+        return 1;
     }
     printf("\n");
     while (aux) {
@@ -211,6 +211,7 @@ void show_active_rents(Cliente *cliente, Guitar *gui, int tam) { //mostra alugue
         }
         aux = aux->prox;
     }
+    return 0;
 }
 
 void add_rent_to_file(Aluguer * aluguer, char *nome_fich) { //adiciona aluguer no final do ficheiro

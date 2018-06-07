@@ -29,6 +29,7 @@ void show_active_cli(Cliente * cliente) {
 
 void show_cli_data(Cliente * cliente) {
     Cliente *aux;
+    int cont = 0;
     aux = cliente;
 
     if (aux == NULL) {
@@ -36,6 +37,7 @@ void show_cli_data(Cliente * cliente) {
         return;
     }
     while (aux) {
+        cont = 0;
         printf(" N_Alugueres: %-10d NIF: %d Nome: %s\n", aux->cont_a, aux->nif, aux->nome);
 
         Aluguer *aluguer = aux->alu;
@@ -53,9 +55,11 @@ void show_cli_data(Cliente * cliente) {
                             aluguer->id, aluguer->estado,
                             aluguer->data_i.dia, aluguer->data_i.mes,
                             aluguer->data_i.ano);
+                    cont++;
                     aluguer = aluguer->prox;
                 }
             }
+            printf("O cliente %s tem %d guitarras alugadas\n", aux->nome, cont);
         }
         aux = aux->prox;
 
@@ -204,7 +208,7 @@ Cliente * add_cli_with_rent_node(Cliente *cliente, Aluguer *aluguer, Cliente cli
     new->alu = add_rent_from_file_to_node(aluguer, file);
     new->cont_estado = count_damaged_gui(cliente, cli_aux.nif);
     new->prox = NULL;
-    printf("%s\n\n", new->nome);
+    
     if (cliente == NULL) {
         cliente = new;
     } else {

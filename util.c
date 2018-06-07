@@ -24,8 +24,6 @@ int check_file_empty(FILE *fp1) {
     size = ftell(fp1);
 
     if (size == 0) {
-        // printf("O ficheiro esta vazio\n\n");
-        rewind(fp1);
         return 1;
     }
     rewind(fp1);
@@ -175,4 +173,9 @@ int check_dates(Data data_i, Data data_f) {
         }
     }
     return 1;
+}
+
+void cls() {
+    system("pause");
+    system("cls");
 }

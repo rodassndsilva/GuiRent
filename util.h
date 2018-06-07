@@ -19,6 +19,7 @@ int check_nif(int num);
 int count_day_delay(Data data_prev, Data data_f);
 int dater(int x);
 Data expected_date(Data data);
+void cls();
 FILE * open_folder(char *nome, char *mode);
 
 #endif /* UTIL_H */

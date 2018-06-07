@@ -19,6 +19,16 @@ void show_ban_file(char *nome_fich) {
     fclose(f);
 }
 
+void check_ban_file_existence(char *nome_fich) {
+    FILE *f;
+
+    if ((f = open_folder(nome_fich, "wb")) == NULL) {
+        return;
+    }
+    fclose(f);
+    
+}
+
 int search_cli_on_ban_file(int nif, char *nome_fich) {
     Ban ban;
     FILE *f;

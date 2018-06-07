@@ -21,16 +21,18 @@
 int main(int argc, char** argv) {
     Cliente *head_c = NULL;
     Aluguer *head_a = NULL;
-    Guitar *g;
+    Guitar *g = NULL;
     Cliente aux_cli;
     Guitar aux_gui;
     Data aux_data;
     Data aux_data_2;
 
     int tam = 0, pos, cont, flag = -2;
+    FILE *f;
 
     head_c = add_cli_file_to_node(head_c, head_a, nome_fich_cli);
     g = read_gui_from_file(g, &tam, nome_fich_gui);
+    check_ban_file_existence(nome_fich_ban);
 
     int i, j;
 
@@ -38,11 +40,12 @@ int main(int argc, char** argv) {
         i = menu();
         switch (i) {
             case 1:
+                system("cls");
                 do {
                     j = submenu1();
                     switch (j) {
                         case 1:
-                            
+
                             flag = -2;
                             printf("\nIntruduza o cliente a adicionar: ");
                             scanf(" %49[^\n]", aux_cli.nome);
@@ -59,39 +62,53 @@ int main(int argc, char** argv) {
                             aux_cli.cont_estado = 0;
                             head_c = add_one_cli_node(head_c, aux_cli);
                             add_cli_file(aux_cli, nome_fich_cli);
-
+                            cls();
                             break;
 
                         case 2:
+                            flag = -2;
+                            f = open_folder(nome_fich_cli, "r");
+                            if (check_file_empty(f) == 1) {
+                                printf("Ficheiro %s vazio\n\n", nome_fich_cli);
+                                fclose(f);
+                                break;
+                            }
+                            show_active_cli(head_c);
                             do {
-                                if (flag == 1) {
+                                if (flag == 0) {
                                     printf("\nEste NIF nao esta ativo, tente outra vez!\n\n");
                                 }
                                 printf("\nIntruduza o NIF do cliente a remover da base de dados: ");
                                 scanf("%d", &aux_cli.nif);
                             } while (check_nif(aux_cli.nif) == 0 ||
-                                    (flag = check_if_cli_active(head_c, aux_cli.nif) == 1) ||
+                                    (flag = check_if_cli_active(head_c, aux_cli.nif) == 0) ||
                                     search_cli_on_ban_file(aux_cli.nif, nome_fich_ban) == 1);
 
                             head_c = delete_cli_node(head_c, aux_cli.nif);
                             delete_cli_file(head_c, nome_fich_cli);
+                            cls();
                             break;
 
                         case 3:
                             show_cli_data(head_c);
+                            cls();
                             break;
                         case 4:
                             show_active_cli(head_c);
+                            cls();
                             break;
                         case 5:
                             show_ban_file(nome_fich_ban);
+                            cls();
                             break;
                         case 6:
+                            system("cls");
                             break;
                     }
                 } while (j != 6);
                 break;
             case 2:
+                 system("cls");
                 do {
                     j = submenu2();
                     switch (j) {
@@ -99,30 +116,52 @@ int main(int argc, char** argv) {
                             aux_gui = get_gui(g, &tam, aux_gui);
                             g = add_gui(g, aux_gui, &tam);
                             add_gui_file(g, tam - 1, nome_fich_gui);
+                            cls();
                             break;
+
                         case 2:
                             do {
                                 printf("Insira o id da guitarra para ver o seu historio: ");
                                 scanf("%d", &aux_gui.id);
                             } while (search_gui_with_id(g, aux_gui.id, tam) == -1);
                             gui_rent_history(aux_gui.id, head_c);
+                            cls();
                             break;
+
                         case 3:
                             show_gui(g, tam);
+                            cls();
                             break;
+
                         case 4:
                             show_rented_gui(g, head_c, &tam);
+                            cls();
                             break;
+
                         case 5:
+                            system("cls");
                             break;
                     }
                 } while (j != 5);
                 break;
             case 3:
+                system("cls");
                 do {
                     j = submenu3();
                     switch (j) {
                         case 1:
+                            f = open_folder(nome_fich_cli, "r");
+                            if (check_file_empty(f) == 1) {
+                                printf("Ficheiro %s vazio\n\n", nome_fich_cli);
+                                fclose(f);
+                                break;
+                            }
+                            f = open_folder(nome_fich_gui, "r");
+                            if (check_file_empty(f) == 1) {
+                                printf("Ficheiro %s vazio\n\n", nome_fich_gui);
+                                fclose(f);
+                                break;
+                            }
                             printf("Clientes Activos:\n");
                             show_active_cli(head_c);
                             printf("\n");
@@ -163,11 +202,14 @@ int main(int argc, char** argv) {
                                 printf("\nValor maximo previsto a cobrar do aluguer: %d\nData limite: %02d-%02d-%04d\n\n",
                                         valor_cobrar, aux_data.dia, aux_data.mes, aux_data.ano);
                             }
+                            cls();
                             break;
 
                         case 2:
                             printf("\nAluguer a decorrer:\n");
-                            show_active_rents(head_c, g, tam);
+                            if (show_active_rents(head_c, g, tam) == 1) {
+                                break;
+                            }
 
                             printf("\n\nInsira o NIF do cliente que quer concluir o aluguer: ");
                             scanf("%d", &aux_cli.nif);
@@ -180,6 +222,7 @@ int main(int argc, char** argv) {
                                 if (flag == 0) {
                                     printf("\nEste NIF nao esta ativo, tente outra vez!\n\n");
                                 }
+                                cls();
                                 break;
                             }
 
@@ -196,6 +239,7 @@ int main(int argc, char** argv) {
                                 if (flag == 0) {
                                     printf("\nA guitarra com esse id esta disponivel logo nao esta nas guitarras alugadas, tente outra vez!\n\n");
                                 }
+                                cls();
                                 break;
                             }
 
@@ -230,7 +274,9 @@ int main(int argc, char** argv) {
                                 delete_cli_file(head_c, nome_fich_cli);
                                 printf("\nCliente banido\n");
                                 printf("\nAluguer Concluido\n");
+                                cls();
                                 break;
+
                             }
                             printf("Danificadas: %d\n\n", count_damaged_gui(head_c, aux_cli.nif));
                             if ((flag = count_damaged_gui(head_c, aux_cli.nif)) > 3) {
@@ -243,18 +289,21 @@ int main(int argc, char** argv) {
                                 delete_cli_file(head_c, nome_fich_cli);
                                 printf("\nCliente banido\n");
                                 printf("\nAluguer Concluido\n");
+                                cls();
                                 break;
 
                             }
                             printf("\nAluguer Concluido\n");
-
+                            cls();
                             break;
 
                         case 3:
                             show_rents(head_c, g, tam);
+                            cls();
                             break;
 
                         case 4:
+                            system("cls");
                             break;
                     }
                 } while (j != 4);
